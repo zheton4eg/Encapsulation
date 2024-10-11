@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 
 namespace Encapsulation
 
+
+
 { class Point
 	{
 		/*double x;
@@ -19,7 +21,7 @@ namespace Encapsulation
 			set
 			{
 				if (value > 200) value = 200;
-			    x = value;
+				x = value;
 			}
 		}
 		public double Y
@@ -36,7 +38,7 @@ namespace Encapsulation
 		}
 		public double GetX()
 		{
-		return x;
+			return x;
 		}
 		public double GetY()
 		{
@@ -50,16 +52,34 @@ namespace Encapsulation
 		public void SetY(double y)
 		{
 			if (y > 150) y = 150;
-			this.y = y;	
+			this.y = y;
 		}*/
 
 		public double X { get; set; }
 		public double Y { get; set; }
 
+		
+		public double Distance(Point other)
+		{
+			double XDistance = this.X-other.X;
+			double YDistance=this.Y-other.Y;
+			double Distance = Math.Sqrt(XDistance* XDistance+ YDistance* YDistance);
+			return Distance;
+		}
+
+		public double Distance(Point left,Point right)
+		{
+			double XDistance = left.X - right.X;
+			double YDistance = left.Y - right.Y;
+			double Distance = Math.Sqrt(XDistance * XDistance + YDistance * YDistance);
+			return Distance;
+		}
 		public void Print()
 		{
 			Console.WriteLine($"X = {X}\tY ={Y}");
 			/*Console.WriteLine($"X = {GetX()}\tY ={GetY()}");*/
 		}
+
 	}
 }
+

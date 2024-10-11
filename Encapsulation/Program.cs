@@ -1,8 +1,11 @@
-﻿using System;
+﻿using Encapsulation;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+
+
 
 namespace Encapsulation
 {
@@ -15,10 +18,18 @@ namespace Encapsulation
 			/*A.SetX(200);
 			A.SetY(300);
 			A.Print();*/
-			A.X = 22;
-			A.Y = 33;
+			A.X = 2;
+			A.Y = 2;
 			A.Print();
+			Point B = new Point();
+			B.X = 4;
+			B.Y = 6;
+			B.Print();
+
+			
 		}
 		
+
 	}
+
 }
