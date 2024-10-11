@@ -1,4 +1,5 @@
 ﻿using System;
+using System.CodeDom;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -74,9 +75,55 @@ namespace Encapsulation
 			double Distance = Math.Sqrt(XDistance * XDistance + YDistance * YDistance);
 			return Distance;
 		}
+
+		public Point(double x=0, double y = 0)
+		{
+			X = x;
+			Y = y;
+			Console.WriteLine($"DefaultConstructor:{this.GetHashCode()}");
+		}
+		public Point(Point other)
+		{
+			this.X = other.X;
+			this.Y = other.Y;
+			Console.WriteLine($"CopyConstructor{this.GetHashCode()}");
+		}
+		~Point()
+		{
+			Console.WriteLine($"Destructor:{this.GetHashCode()}");
+		}
+		public static Point operator+(Point left, Point right)
+		{
+Point resoult = new Point();
+			resoult.X = left.X+right.X;
+			resoult.Y = left.Y+right.Y;	
+			return resoult;
+		}
+		public static Point operator -(Point left, Point right)
+		{
+			
+			
+			return new Point(left.X - right.X,
+			                 left.Y - right.Y);
+		}
+
+		public static Point operator ++(Point obj)
+		{
+			obj.X++;
+			obj.Y++;
+			return obj;
+		}
+		public static bool operator==(Point left, Point right)
+		{
+			return left.X==right.X&&left.Y==right.Y;
+		}
+		public static bool operator !=(Point left, Point right)
+		{
+			return !(left==right);
+		}
 		public void Print()
 		{
-			Console.WriteLine($"X = {X}\tY ={Y}");
+			Console.WriteLine($"X = {X}\tY ={Y}\t{this.GetHashCode()}");
 			/*Console.WriteLine($"X = {GetX()}\tY ={GetY()}");*/
 		}
 
